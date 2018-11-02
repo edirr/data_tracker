@@ -6,32 +6,28 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      student_data: null,
+      student_data: [],
     };
   }
 
-  // componentDidMount() {
-  //   fetch('/students').then(res => res.json()).then((jsonRes) => {
-  //     this.setState({
-  //       student_data: jsonRes.students_data,
-  //     });
-  //   });
-  // }
 
   componentDidMount(){
     fetch('/students')
       .then((response) => {return response.json()})
       .then((data) => {this.setState({ student_data: data }) });
+      // console.log(data)
   }
+
 
 
 
   render() {
     const students = this.state.student_data
-    console.log(students)
+
     return (
       <div className="App">
-     <ClassList students={students}/>
+        <ClassList students={students}/>
+
 
       </div>
     );
