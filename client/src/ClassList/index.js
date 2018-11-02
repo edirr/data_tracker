@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import StudentTile from "../StudentTile"
 
 class ClassList extends Component {
   constructor(props) {
@@ -11,15 +12,14 @@ class ClassList extends Component {
   let students = this.props.students.length === 0 ? '' : this.props.students.map((student=>{
       return(
         <div>
-        <h1>{student.name}</h1>
-        <p>{student.age}</p>
-        <p>{student.address}</p>
+        <StudentTile key={student.id} id={student.id} student={student}/>
         </div>
         )
     }));
 
     return(
       <div>
+      <h1>Class List</h1>
       {students}
       </div>
       )
