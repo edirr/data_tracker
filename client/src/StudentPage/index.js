@@ -6,36 +6,45 @@ class StudentPage extends Component {
     super(props);
     this.state = {
       single_student_data: [],
+      student_id: [],
     };
     // this.getSingleStudent = this.getSingleStudent.bind(this);
   }
 
-componentDidMount(){
-  // getSingleStudent();
-}
-
 // async getSingleStudent(){
-//     fetch({`/students/${this.props.match.params.id}`})
+
+//   const id = this.state.student_id
+//   const studentId = `/students/${id}`
+//   console.log(studentId)
+//     fetch({studentId})
 //       .then((response) => {return response.json()})
 //       .then((data) => {this.setState({ single_student_data: data }) });
+// }
+// componentDidMount(){
+
+//   }
+
+// componentWillReceiveProps(){
+//   this.setState({
+//       student_id: this.props.student_id
+//     })
+//   this.getSingleStudent();
 // }
 
 
 
 
+
+
   render(){
-    console.log(this.props)
-    let students = this.props.students.length === 0 ? '' : this.props.students.map((student=>{
-      return(
-        <div>
-        <p>{student.name}</p>
-        </div>
-        )
-    }));
+  // let student =
+  //     this.state.single_student_data.length === 0
+  //       ? ""
+  //       : this.state.single_student_data
 
     return(
-      <div>
-      single student
+      <div class="student-page">
+      <h1>Student Name</h1>
       </div>
       )
 
