@@ -43,9 +43,10 @@ class App extends Component {
 }
 async getSingleStudent(){
   const id = this.state.student_id
-  const studentId = `/students/${id}`
-  console.log(studentId)
-    fetch({studentId})
+  console.log(id);
+  const studentId = `/students/${this.state.student_id}`
+  // console.log(`/students/${this.state.student_id}`)
+    fetch(studentId)
       .then((response) => {return response.json()})
       .then((data) => {this.setState({ single_student_data: data }) });
 }
@@ -61,9 +62,9 @@ async getSingleStudent(){
 
   }
 
-  shouldComponentUpdate(){
-    // this.getSingleStudent();
-  }
+  // componentDidUpdate(){
+  //   this.getSingleStudent();
+  // }
 
   clearStudentId(){
     this.setState({
@@ -72,9 +73,10 @@ async getSingleStudent(){
   }
   sendStudentId(e){
     // clearStudentId();
-    this.setState({
-      student_id: e.target.id
-    })
+    // this.setState({
+      // student_id: e.target.id
+      this.setState({student_id: e.target.id}, this.getSingleStudent)
+    // this.getSingleStudent();
   }
 
 
@@ -89,6 +91,7 @@ async getSingleStudent(){
 
   render() {
     const students = this.state.student_data
+    const student = this.state.single_student_data
     const tests = this.state.test_data
 
     return (
@@ -100,7 +103,7 @@ async getSingleStudent(){
           <ClassList sendStudentId={this.sendStudentId} students={students}/>
           </div>
           <div className="column is-four-fifths">
-          <StudentPage student_id={this.state.student_id}/>
+          <StudentPage student={student}/>
           </div>
       </div>
       </div>

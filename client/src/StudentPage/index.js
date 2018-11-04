@@ -5,8 +5,8 @@ class StudentPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      single_student_data: [],
-      student_id: [],
+      // single_student_data: [],
+      // student_id: [],
     };
     // this.getSingleStudent = this.getSingleStudent.bind(this);
   }
@@ -37,14 +37,14 @@ class StudentPage extends Component {
 
 
   render(){
-  // let student =
-  //     this.state.single_student_data.length === 0
-  //       ? ""
-  //       : this.state.single_student_data
+  let student =
+      this.props.student.length > 1
+        ? ""
+        : this.props.student
 
     return(
       <div class="student-page">
-      <h1>Student Name</h1>
+      <h1>{student.name}</h1>
       </div>
       )
 
