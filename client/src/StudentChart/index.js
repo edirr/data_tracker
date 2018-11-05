@@ -10,6 +10,12 @@ class StudentChart extends Component {
     };
 
   }
+  addData(chart, label, data) {
+    chart.data.datasets.forEach((dataset) => {
+        dataset.data.push(data);
+    });
+    chart.update();
+}
 
   shouldComponentUpdate(nextProps) {
     const differentProps = this.props.studentScores !== nextProps.studentScores;
@@ -36,11 +42,11 @@ render(){
               test.grade
             );
           });
-// console.log(scores)
+console.log(scores)
 
 
 
-  const chartData = {
+  let chartData = {
         labels: ['unit 1', 'unit 2', 'unit 3', 'unit 4', 'unit 5', 'unit 6'],
         datasets:[
           {

@@ -31,6 +31,11 @@ class StudentPage extends Component {
 //   this.getSingleStudent();
 // }
 
+// shouldComponentUpdate(nextProps) {
+//     const differentProps = this.props.studentScores !== nextProps.studentScores;
+//     return differentProps;
+//     }
+
 
 
 
