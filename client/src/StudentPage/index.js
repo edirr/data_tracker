@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import StudentChart from "../StudentChart"
 
 class StudentPage extends Component {
   constructor(props) {
@@ -38,13 +38,17 @@ class StudentPage extends Component {
 
   render(){
   let student =
-      this.props.student.length > 1
+      this.props.student.length < 1
         ? ""
         : this.props.student
 
+
     return(
       <div class="student-page">
-      <h1>{student.name}</h1>
+      <h1>Name:{student.name}</h1>
+      <h1>Age:{student.age}</h1>
+      <h1>Address:{student.address}</h1>
+      <StudentChart studentScores={this.props.studentScores}/>
       </div>
       )
 

@@ -8,19 +8,20 @@ import NavBar from "../NavBar";
 import 'bulma';
 
 
+
 class App extends Component {
   constructor() {
     super();
     this.state = {
       student_data: [],
-      test_data: [],
+      student_test_data: [],
       student_id:[],
-      single_student_data: [],
+      single_student_data: '',
 
 
     };
     this.getStudents = this.getStudents.bind(this);
-    this.getScores = this.getScores.bind(this);
+    this.getSingleStudentScores = this.getSingleStudentScores.bind(this);
     this.clearStudentId = this.clearStudentId.bind(this);
     this.sendStudentId = this.sendStudentId.bind(this);
     this.getSingleStudent = this.getSingleStudent.bind(this);
@@ -36,15 +37,17 @@ class App extends Component {
 
        }) });
 }
- async getScores(){
-    fetch('/tests')
+ async getSingleStudentScores(){
+   // const id = this.state.student_id
+   let studentTests = `/student/tests/${this.state.student_id}`
+   // console.log(studentTests)
+    fetch(studentTests)
       .then((response) => {return response.json()})
-      .then((data) => {this.setState({ test_data: data }) });
+      .then((data) => {this.setState({ student_test_data: data }) });
 }
 async getSingleStudent(){
-  const id = this.state.student_id
-  console.log(id);
-  const studentId = `/students/${this.state.student_id}`
+  // const id = this.state.student_id
+  let studentId = `/students/${this.state.student_id}`
   // console.log(`/students/${this.state.student_id}`)
     fetch(studentId)
       .then((response) => {return response.json()})
@@ -58,7 +61,7 @@ async getSingleStudent(){
 
   componentDidMount(){
     this.getStudents();
-    this.getScores();
+
 
   }
 
@@ -71,12 +74,18 @@ async getSingleStudent(){
       student_id: []
     })
   }
-  sendStudentId(e){
-    // clearStudentId();
-    // this.setState({
-      // student_id: e.target.id
-      this.setState({student_id: e.target.id}, this.getSingleStudent)
-    // this.getSingleStudent();
+  // sendStudentId(e){
+  //   // clearStudentId();
+  //   // this.setState({
+  //     // student_id: e.target.id
+  //     this.setState({student_id: e.target.id}, this.getSingleStudent, this.getSingleStudentScores)
+  //   // this.getSingleStudent();
+  // }
+
+   async sendStudentId(e){
+      await this.setState({student_id: e.target.id})
+      this.getSingleStudent()
+      this.getSingleStudentScores();
   }
 
 
@@ -93,6 +102,7 @@ async getSingleStudent(){
     const students = this.state.student_data
     const student = this.state.single_student_data
     const tests = this.state.test_data
+    const studentScores = this.state.student_test_data
 
     return (
 
@@ -103,7 +113,7 @@ async getSingleStudent(){
           <ClassList sendStudentId={this.sendStudentId} students={students}/>
           </div>
           <div className="column is-four-fifths">
-          <StudentPage student={student}/>
+          <StudentPage student={student} studentScores={studentScores}/>
           </div>
       </div>
       </div>

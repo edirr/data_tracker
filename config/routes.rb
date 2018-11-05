@@ -3,4 +3,5 @@ Rails.application.routes.draw do
 resources :students
 resources :tests
 resources :users
+get '/student/tests/:id', to: "tests#student_tests"
 end
