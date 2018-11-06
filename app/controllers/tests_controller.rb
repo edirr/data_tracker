@@ -4,7 +4,6 @@ class TestsController < ApplicationController
   # GET /tests
   def index
     @tests = Test.all
-
     render json: @tests
   end
 
@@ -13,15 +12,9 @@ class TestsController < ApplicationController
     render json: @test
   end
 
-  def student_tests
-    @studentTests = Test.where(:student_id => params[:id] )
-    render json: @studentTests
-  end
-
   # POST /tests
   def create
     @test = Test.new(test_params)
-
     if @test.save
       render json: @test, status: :created, location: @test
     else

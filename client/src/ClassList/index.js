@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import StudentTile from "../StudentTile";
+import CreateStudentForm from "../CreateStudentForm";
 
 class ClassList extends Component {
   constructor(props) {
@@ -10,20 +11,22 @@ class ClassList extends Component {
   render() {
     let sendStudentId = this.props.sendStudentId
     let students =
-      this.props.students.length === 0
+      this.props.students.length < 1
         ? ""
         : this.props.students.map(student => {
             return (
-              <li><a key={student.id} id={student.id} value={student.id} onClick={sendStudentId} >{student.name}</a></li>
+              <li><a className="student" key={student.id} id={student.id} value={student.id} onClick={sendStudentId} >{student.name}</a></li>
 
             );
           });
 
     return (
       <aside className="menu class-list">
-        <p className="menu-label">Class List</p>
+        <h1 className="class-list-heading">Class List</h1>
         <ul className="menu-list">{students}</ul>
+       <CreateStudentForm/>
       </aside>
+
     );
   }
 }

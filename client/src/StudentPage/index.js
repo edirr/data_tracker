@@ -5,8 +5,7 @@ class StudentPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // single_student_data: [],
-      // student_id: [],
+
     };
     // this.getSingleStudent = this.getSingleStudent.bind(this);
   }
@@ -25,10 +24,9 @@ class StudentPage extends Component {
 //   }
 
 // componentWillReceiveProps(){
-//   this.setState({
-//       student_id: this.props.student_id
-//     })
-//   this.getSingleStudent();
+//   let chartData = Object.assign({}, this.state.chartData);
+//   chartData.datasets.data = "this.props.studentScores";
+//   this.setState({chartData});
 // }
 
 // shouldComponentUpdate(nextProps) {
@@ -47,13 +45,39 @@ class StudentPage extends Component {
         ? ""
         : this.props.student
 
+let studentScores = this.props.studentScores
+ // if (this.props.studentScores.length > 0){
+ //   let scores = this.props.studentScores.map(test => {
+ //            return (
+ //              test.grade
+ //            );
+ //          })
+ //   console.log()
+ //   return scores
+ // }
+      // let studentScores = this.props.studentScores.length < 1
+      //   ? "No Data"
+      //   : this.props.studentScores.map(test => {
+      //       return (
+      //         test.grade
+      //       );
+      //     });
+
+      // checkForData(){
+
+      // }
+
 
     return(
-      <div class="student-page">
-      <h1>Name:{student.name}</h1>
-      <h1>Age:{student.age}</h1>
-      <h1>Address:{student.address}</h1>
-      <StudentChart studentScores={this.props.studentScores}/>
+      <div className="student-page">
+      <div className="student-info">
+      <h1><strong>Name: </strong>{student.name}</h1>
+      <h1><strong>Address: </strong>{student.address}</h1>
+      <h1><strong>Age: </strong>{student.age}</h1>
+      </div>
+      <div className="student-chart">
+      <StudentChart student={student} studentScores={studentScores}/>
+      </div>
       </div>
       )
 

@@ -4,6 +4,7 @@ import './style.css';
 import ClassList from "../ClassList";
 import StudentPage from "../StudentPage";
 import NavBar from "../NavBar";
+import CreateStudentForm from "../CreateStudentForm";
 
 import 'bulma';
 
@@ -28,8 +29,14 @@ class App extends Component {
 
   }
 
+  // async newStudentSubmitAction(newStudent) {
+  //   // fetch / post (newStudent)
+  //   const studentID = await fetch('URL','post', data);
+  //   this.getStudents();
+  // }
+
  async getStudents(){
-    fetch('/students')
+    fetch('/api/students')
       .then((response) => {return response.json()})
       .then((data) => {this.setState({
         student_data: data,
@@ -39,17 +46,17 @@ class App extends Component {
 }
  async getSingleStudentScores(){
    // const id = this.state.student_id
-   let studentTests = `/student/tests/${this.state.student_id}`
+   let studentTests = `/api/students/${this.state.student_id}/tests`
    // console.log(studentTests)
-    fetch(studentTests)
+    await fetch(studentTests)
       .then((response) => {return response.json()})
       .then((data) => {this.setState({ student_test_data: data }) });
 }
 async getSingleStudent(){
   // const id = this.state.student_id
-  let studentId = `/students/${this.state.student_id}`
+  let studentId = `/api/students/${this.state.student_id}`
   // console.log(`/students/${this.state.student_id}`)
-    fetch(studentId)
+    await fetch(studentId)
       .then((response) => {return response.json()})
       .then((data) => {this.setState({ single_student_data: data }) });
 }
