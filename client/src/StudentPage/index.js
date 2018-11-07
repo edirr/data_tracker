@@ -46,6 +46,7 @@ class StudentPage extends Component {
         : this.props.student
 
 let studentScores = this.props.studentScores
+let studentMathScores = this.props.studentMathScores
  // if (this.props.studentScores.length > 0){
  //   let scores = this.props.studentScores.map(test => {
  //            return (
@@ -76,7 +77,7 @@ let studentScores = this.props.studentScores
       <h1><strong>Age: </strong>{student.age}</h1>
       </div>
       <div className="student-chart">
-      <StudentChart student={student} studentScores={studentScores}/>
+      <StudentChart student={student} studentScores={studentScores} studentMathScores={studentMathScores}/>
       </div>
       </div>
       )

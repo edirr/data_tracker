@@ -17,6 +17,7 @@ class App extends Component {
     this.state = {
       student_data: [],
       student_test_data: [],
+      student_math_test_data: [],
       student_id:[],
       single_student_data: '',
 
@@ -77,6 +78,16 @@ class App extends Component {
       .then((response) => {return response.json()})
       .then((data) => {this.setState({ student_test_data: data }) });
 }
+
+async getSingleStudentMathScores(){
+   // const id = this.state.student_id
+   let studentMathTests = `/api/students/${this.state.student_id}/mathtests`
+   // console.log(studentTests)
+    await fetch(studentMathTests)
+      .then((response) => {return response.json()})
+      .then((data) => {this.setState({ student_math_test_data: data }) });
+}
+
 async getSingleStudent(){
   // const id = this.state.student_id
   let studentId = `/api/students/${this.state.student_id}`
@@ -118,6 +129,7 @@ async getSingleStudent(){
       await this.setState({student_id: e.target.id})
       this.getSingleStudent()
       this.getSingleStudentScores();
+      this.getSingleStudentMathScores();
   }
 
 
@@ -134,6 +146,7 @@ async getSingleStudent(){
     const students = this.state.student_data
     const student = this.state.single_student_data
     const tests = this.state.test_data
+    const studentMathScores = this.state.student_math_test_data
     const studentScores = this.state.student_test_data
 
     return (
@@ -145,7 +158,7 @@ async getSingleStudent(){
           <ClassList sendStudentId={this.sendStudentId} students={students}/>
           </div>
           <div className="column is-three-fifths">
-          <StudentPage student={student} studentScores={studentScores}/>
+          <StudentPage student={student} studentScores={studentScores} studentMathScores={studentMathScores}/>
           </div>
           <div className="column is-one-fifth new-student-form">
           <CreateStudentForm newStudentSubmitAction={this.newStudentSubmitAction}/>

@@ -3,8 +3,10 @@ Rails.application.routes.draw do
 scope :api do
     resources :students do
     resources :tests, except: %i(destroy update show), controller: 'student_tests'
+    resources :mathtests, except: %i(destroy update show), controller: 'student_math_tests'
   end
     resources :tests, only: %i(destroy update show)
+    resources :mathtests, only: %i(destroy update show)
 end
 resources :users
 # get '/student/tests/:id', to: "tests#student_tests"

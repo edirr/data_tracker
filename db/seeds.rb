@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Test.destroy_all
+MathTest.destroy_all
 Student.destroy_all
 User.destroy_all
 
@@ -298,7 +299,203 @@ Test.create([
 
 
 ]);
+MathTest.create([
+  {
+    math_test_name: 'Math Unit 1',
+    grade: 87,
+    date: '2018-09-16',
+    student_id: 1,
+  },
+  {
+    math_test_name: 'Spelling Unit',
+    grade: 96,
+    date: '2018-09-18',
+    student_id: 1,
+  },
+  {
+    math_test_name: 'S.S test Unit 1  ',
+    grade: 76,
+    date: '2018-09-27',
+    student_id: 1,
+  },
+  {
+    math_test_name: 'Science Unit 1',
+    grade: 82,
+    date: '2018-09-29',
+    student_id: 1,
+  },
+  {
+    math_test_name: 'Spelling Test 2',
+    grade: 75,
+    date: '2018-10-3',
+    student_id: 1,
+  },
+  {
+    math_test_name: 'Math Quiz Unit 2',
+    grade: 87,
+    date: '2018-10-8',
+    student_id: 1,
+  },
+  {
+    math_test_name: 'Science Quiz 2',
+    grade: 97,
+    date: '2018-10-13',
+    student_id: 1,
+  },
+  {
+    math_test_name: 'Reading Test Unit 2',
+    grade: 87,
+    date: '2018-10-20',
+    student_id: 1,
+  },
+  {
+    math_test_name: 'Math Unit 1',
+    grade: 77,
+    date: '2018-09-16',
+    student_id: 2,
+  },
+  {
+    math_test_name: 'Spelling Unit',
+    grade: 85,
+    date: '2018-09-18',
+    student_id: 2,
+  },
+  {
+    math_test_name: 'S.S test Unit 1  ',
+    grade: 73,
+    date: '2018-09-27',
+    student_id: 2,
+  },
+  {
+    math_test_name: 'Science Unit 1',
+    grade: 93,
+    date: '2018-09-29',
+    student_id: 2,
+  },
+  {
+    math_test_name: 'Spelling Test 2',
+    grade: 75,
+    date: '2018-10-3',
+    student_id: 2,
+  },
+  {
+    math_test_name: 'Math Quiz Unit 2',
+    grade: 86,
+    date: '2018-10-8',
+    student_id: 2,
+  },
+  {
+    math_test_name: 'Science Quiz 2',
+    grade: 98,
+    date: '2018-10-13',
+    student_id: 2,
+  },
+  {
+    math_test_name: 'Reading Test Unit 2',
+    grade: 89,
+    date: '2018-10-20',
+    student_id: 2,
+  },
+  {
+    math_test_name: 'Math Unit 1',
+    grade: 84,
+    date: '2018-09-16',
+    student_id: 3,
+  },
+  {
+    math_test_name: 'Spelling Unit',
+    grade: 90,
+    date: '2018-09-18',
+    student_id: 3,
+  },
+  {
+    math_test_name: 'S.S test Unit 1  ',
+    grade: 85,
+    date: '2018-09-27',
+    student_id: 3,
+  },
+  {
+    math_test_name: 'Science Unit 1',
+    grade: 75,
+    date: '2018-09-29',
+    student_id: 3,
+  },
+  {
+    math_test_name: 'Spelling Test 2',
+    grade: 93,
+    date: '2018-10-3',
+    student_id: 3,
+  },
+  {
+    math_test_name: 'Math Quiz Unit 2',
+    grade: 68,
+    date: '2018-10-8',
+    student_id: 3,
+  },
+  {
+    math_test_name: 'Science Quiz 2',
+    grade: 86,
+    date: '2018-10-13',
+    student_id: 3,
+  },
+  {
+    math_test_name: 'Reading Test Unit 2',
+    grade: 80,
+    date: '2018-10-20',
+    student_id: 3,
+  },
+  {
+    math_test_name: 'Math Unit 1',
+    grade: 87,
+    date: '2018-09-16',
+    student_id: 4,
+  },
+  {
+    math_test_name: 'Spelling Unit',
+    grade: 90,
+    date: '2018-09-18',
+    student_id: 4,
+  },
+  {
+    math_test_name: 'S.S test Unit 1  ',
+    grade: 73,
+    date: '2018-09-27',
+    student_id: 4,
+  },
+  {
+    math_test_name: 'Science Unit 1',
+    grade: 78,
+    date: '2018-09-29',
+    student_id: 4,
+  },
+  {
+    math_test_name: 'Spelling Test 2',
+    grade: 98,
+    date: '2018-10-3',
+    student_id: 4,
+  },
+  {
+    math_test_name: 'Math Quiz Unit 2',
+    grade: 83,
+    date: '2018-10-8',
+    student_id: 4,
+  },
+  {
+    math_test_name: 'Science Quiz 2',
+    grade: 90,
+    date: '2018-10-13',
+    student_id: 4,
+  },
+  {
+    math_test_name: 'Reading Test Unit 2',
+    grade: 84,
+    date: '2018-10-20',
+    student_id: 4,
+  },
+
+
+]);
 
 
 
-puts "Created #{User.count} users, #{Student.count} students and #{Test.count} Tests"
+puts "Created #{User.count} users, #{Student.count} students, #{Test.count} Tests and #{MathTest.count} Math Tests"

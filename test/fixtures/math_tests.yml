@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  math_test_name: MyString
+  date: 2018-11-07
+  grade: 1
+  student: one
+
+two:
+  math_test_name: MyString
+  date: 2018-11-07
+  grade: 1
+  student: two
