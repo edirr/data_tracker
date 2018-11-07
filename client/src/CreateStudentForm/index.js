@@ -5,48 +5,60 @@ class CreateStudentForm extends Component {
     super(props);
     this.state = {
       name: '',
-      bla:''
+      age:'',
+      address: '',
     };
 
-    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.updateState = this.updateState.bind(this);
   }
 
-// handleSubmit(event) {
-// console.log(event)
-//     event.preventDefault();
-//     const { submitAction } = this.props;
+updateState(event){
+    // destructure the event
+    const { name, value } = event.target;
 
-//     const { thing2, thing3, ...good } = this.state
-//     submitAction(good);
-//   }
+    // set the state as needed
+    this.setState({
+      [name]: value,
+    });
+  }
+
+handleSubmit(event) {
+console.log(event)
+    event.preventDefault();
+    const { newStudentSubmitAction } = this.props;
+
+    // const { thing2, thing3, ...good } = this.state
+    newStudentSubmitAction(this.state);
+  }
 
   render() {
 
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
       <div className="field">
   <label className="label">Name</label>
   <div className="control">
-    <input name="name" className="input" type="text" placeholder="e.g Alex Smith" />
+    <input onChange={this.updateState} name="name" className="input" type="text" value={this.state.name} placeholder="Alex Smith" />
   </div>
 </div>
 
 <div className="field">
   <label className="label">Age</label>
   <div className="control">
-    <input name="age" className="input" type="text" placeholder="e.g. 12" />
+    <input onChange={this.updateState} name="age" className="input" type="text" value={this.state.age} placeholder="12" />
   </div>
 </div>
 <div className="field">
   <label className="label">Address</label>
   <div className="control">
-    <input name="address" className="input" type="text" placeholder="e.g. 14 Wavey Ave" />
+    <input onChange={this.updateState} name="address" className="input" type="text" value={this.state.address} placeholder="14 Wavey Ave" />
   </div>
 </div>
 <div className="field">
   <label className="label">Teacher</label>
   <div className="control">
-    <input name="user_id" className="input" type="text" value="1" placeholder="e.g. 14 Wavey Ave" />
+    <input name="user_id" className="input" type="text" value="1" placeholder="" />
   </div>
 </div>
 <div class="control">

@@ -53,6 +53,8 @@ body{
   background:#DFDCE3;
   width:50em;
   height: 30rem;
-
-
+}
+.new-student-form{
+  background-color: #FC4A1A;
+  padding: 2em !important;
 }

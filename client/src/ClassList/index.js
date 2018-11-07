@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import StudentTile from "../StudentTile";
-import CreateStudentForm from "../CreateStudentForm";
+
 
 class ClassList extends Component {
   constructor(props) {
@@ -24,7 +24,6 @@ class ClassList extends Component {
       <aside className="menu class-list">
         <h1 className="class-list-heading">Class List</h1>
         <ul className="menu-list">{students}</ul>
-       <CreateStudentForm/>
       </aside>
 
     );

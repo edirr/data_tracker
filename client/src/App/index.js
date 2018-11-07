@@ -5,6 +5,7 @@ import ClassList from "../ClassList";
 import StudentPage from "../StudentPage";
 import NavBar from "../NavBar";
 import CreateStudentForm from "../CreateStudentForm";
+import CreateTestForm from "../CreateTestForm";
 
 import 'bulma';
 
@@ -26,14 +27,38 @@ class App extends Component {
     this.clearStudentId = this.clearStudentId.bind(this);
     this.sendStudentId = this.sendStudentId.bind(this);
     this.getSingleStudent = this.getSingleStudent.bind(this);
+    this.newStudentSubmitAction = this.newStudentSubmitAction.bind(this);
+    this.newTestSubmitAction = this.newTestSubmitAction.bind(this);
 
   }
 
-  // async newStudentSubmitAction(newStudent) {
-  //   // fetch / post (newStudent)
-  //   const studentID = await fetch('URL','post', data);
-  //   this.getStudents();
-  // }
+  async newStudentSubmitAction(newStudent) {
+    fetch('/api/students', {
+                method: 'POST',
+                body:JSON.stringify(newStudent)
+            }).then((res) => res.json())
+            .then((data) =>  console.log(data))
+            .catch((err)=>console.log(err))
+    // fetch / post (newStudent)
+    // const studentID = await fetch('/students','post', newStudent);
+    // this.getStudents();
+    console.log(newStudent)
+  }
+
+  async newTestSubmitAction(newTest) {
+    // console.log(newTest)
+    await fetch(`/api/students/${this.state.student_id}/tests`, {
+                method: 'POST',
+                headers: {
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json'
+  },
+                body:JSON.stringify(newTest)
+            }).then((res) => res.json())
+            .then((data) =>  console.log(data))
+            .catch((err)=>console.log(err))
+            this.getSingleStudentScores();
+  }
 
  async getStudents(){
     fetch('/api/students')
@@ -119,8 +144,12 @@ async getSingleStudent(){
           <div className="column is-one-fifth">
           <ClassList sendStudentId={this.sendStudentId} students={students}/>
           </div>
-          <div className="column is-four-fifths">
+          <div className="column is-three-fifths">
           <StudentPage student={student} studentScores={studentScores}/>
+          </div>
+          <div className="column is-one-fifth new-student-form">
+          <CreateStudentForm newStudentSubmitAction={this.newStudentSubmitAction}/>
+          <CreateTestForm newTestSubmitAction={this.newTestSubmitAction} />
           </div>
       </div>
       </div>
