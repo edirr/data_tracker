@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {hot} from "react-hot-loader";
 // import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 import './style.css';
 import ClassList from "../ClassList";
@@ -225,7 +226,7 @@ async getSingleStudent(){
   }
 }
 
-export default App;
+export default hot(module)(App);
 
 
 
