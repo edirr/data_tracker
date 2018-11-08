@@ -117,8 +117,8 @@ class StudentChart extends Component {
     //         return test.grade;
     //       });
     // let average = averageScores.reduce((acc, val) => acc + val, 100);
-    console.log(this.props.studentMathScores)
-    console.log(this.props.studentScores)
+    // console.log(this.props.studentMathScores)
+    // console.log(this.props.studentScores)
     return (
       <div className="chart">
         <Line
