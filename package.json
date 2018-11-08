@@ -1,7 +1,88 @@
 {
-  "dependencies": {
+  "name": "gradebook_app",
+  "version": "1.0.0",
+  "description": "djfhskjadfjwlkdfjslkdfjsldfjslkdfjal",
+  "repository": "https://git.generalassemb.ly/edirr/project_4.git",
+  "author": "Eric Dirr <edirr92@aol.com>",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": "^11.0.0",
+    "yarn": "^1.10.1"
+  },
+  "scripts": {
+    "dev": "concurrently 'rails s' 'webpack-dev-server --hot --mode=development'",
+    "build": "webpack -p --mode=production",
+    "build:dev": "webpack -d --progress --mode=development",
+    "build:dev:analyze": "webpack-bundle-analyzer",
+    "build:watch": "webpack-dev-server --hot --mode=development ",
+    "clean": "rimraf public node_modules",
+    "heroku-postbuild": "webpack -p --mode=production && rimraf client webpack.config.js .babelrc .gitignore README.md",
+    "test": "jest"
+  },
+  "webpack_build": {
+    "entry": "./client/src/main.jsx",
+    "output": "public",
+    "title": "demo react-on-rails",
+    "react_mount_root": "container"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-transform-object-assign": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "@fortawesome/fontawesome-free": "^5.5.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.8",
+    "@fortawesome/free-brands-svg-icons": "^5.5.0",
+    "@fortawesome/free-regular-svg-icons": "^5.5.0",
+    "@fortawesome/free-solid-svg-icons": "^5.5.0",
+    "@fortawesome/react-fontawesome": "^0.1.3",
+    "autoprefixer": "^9.1.5",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-loader": "^8.0.4",
+    "bcrypt": "^3.0.1",
+    "bulma": "^0.7.1",
     "chart.js": "^2.7.3",
+    "clean-webpack-plugin": "^0.1.17",
+    "concurrently": "^4.0.1",
+    "css-loader": "^1.0.1",
+    "csv": "^4.0.0",
+    "dotenv": "^6.1.0",
+    "eslint": "^5.6.1",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.5.1",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^2.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-template": "^6.1.0",
+    "jwt-decode": "^2.2.0",
+    "node-sass": "^4.8.3",
+    "postcss-loader": "^3.0.0",
+    "precss": "^3.1.2",
+    "prop-types": "^15.6.2",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-hot-loader": "^4.3.12",
     "react-router": "^4.3.1",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.0",
+    "url-loader": "^1.1.2",
+    "webpack": "^4.24.0",
+    "webpack-bundle-analyzer": "^3.0.3",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  },
+  "resolutions": {
+    "babel-core": "^7.0.0-bridge.0"
+  },
+  "main": "index.js",
+  "peerDependencies": {
+    "rimraf": "^2.6.2"
   }
 }
