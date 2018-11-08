@@ -21,10 +21,10 @@
     "test": "jest"
   },
   "webpack_build": {
-    "entry": "./client/src/main.jsx",
+    "entry": "./client/src/index.js",
     "output": "public",
-    "title": "demo react-on-rails",
-    "react_mount_root": "container"
+    "title": "Tracker",
+    "react_mount_root": "root"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
@@ -66,6 +66,7 @@
     "precss": "^3.1.2",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
+    "react-chartjs-2": "^2.7.4",
     "react-dom": "^16.5.2",
     "react-hot-loader": "^4.3.12",
     "react-router": "^4.3.1",

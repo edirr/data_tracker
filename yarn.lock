@@ -3930,23 +3930,6 @@ isstream@~0.1.2:
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
 
-jest-localstorage-mock@^2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/jest-localstorage-mock/-/jest-localstorage-mock-2.3.0.tgz#86eda98d5af3aed687aebf11dbab3ca0f8fe66ff"
-  integrity sha512-Lk+awEPuIz0PSERHtnsXyMVLvf/4mZ3sZBEjKG5sJHvey2/i2JfQmmb/NHhialMbHXZILBORzuH64YXhWGlLsQ==
-
-jest-mock-axios@^2.1.11:
-  version "2.1.11"
-  resolved "https://registry.yarnpkg.com/jest-mock-axios/-/jest-mock-axios-2.1.11.tgz#5261646f25d69cd034c8235e4e9683ead3bdcc74"
-  integrity sha512-rxF13chmHuelAh/rysNQEY4YqmOO94XmBO5Mk2+edFh2dOwe3j/XIRSnY8+m61t1658AU6nGoTh1s7tCgvridg==
-  dependencies:
-    jest-mock-promise "^1.0.23"
-
-jest-mock-promise@^1.0.23:
-  version "1.0.23"
-  resolved "https://registry.yarnpkg.com/jest-mock-promise/-/jest-mock-promise-1.0.23.tgz#c921fd6b512ac546097edbcf477f3d4169657e40"
-  integrity sha1-ySH9a1EqxUYJftvPR389QWllfkA=
-
 js-base64@^2.1.8, js-base64@^2.1.9:
   version "2.4.9"
   resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.4.9.tgz#748911fb04f48a60c4771b375cac45a80df11c03"
@@ -5623,7 +5606,7 @@ promise-inflight@^1.0.1:
   resolved "https://registry.yarnpkg.com/promise-inflight/-/promise-inflight-1.0.1.tgz#98472870bf228132fcbdd868129bad12c3c029e3"
   integrity sha1-mEcocL8igTL8vdhoEputEsPAKeM=
 
-prop-types@^15.5.10, prop-types@^15.6.1, prop-types@^15.6.2:
+prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.1, prop-types@^15.6.2:
   version "15.6.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.2.tgz#05d5ca77b4453e985d60fc7ff8c859094a497102"
   integrity sha512-3pboPvLiWD7dkI3qf3KbUe6hKFKa52w+AE0VCqECtf+QHAKgOL37tTaNCnuX1nAAQ4ZhyP+kYVKf8rLmJ/feDQ==
@@ -5758,6 +5741,14 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-chartjs-2@^2.7.4:
+  version "2.7.4"
+  resolved "https://registry.yarnpkg.com/react-chartjs-2/-/react-chartjs-2-2.7.4.tgz#e41ea4e81491dc78347111126a48e96ee57db1a6"
+  integrity sha512-lXTpBaDlk9rIMjRONjZd76dIUhEm3vOp2jOrJrsFG/UpFI5VqX8Xw83apVHTnUGJ968f8i/i/syLddls4NHy2g==
+  dependencies:
+    lodash "^4.17.4"
+    prop-types "^15.5.8"
+
 react-dom@^16.5.2:
   version "16.6.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.6.1.tgz#5476e08694ae504ae385a28b62ecc4fe3a29add9"
@@ -5779,11 +5770,6 @@ react-hot-loader@^4.3.12:
     prop-types "^15.6.1"
     react-lifecycles-compat "^3.0.4"
     shallowequal "^1.0.2"
-
-react-is@^16.6.1:
-  version "16.6.1"
-  resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.6.1.tgz#f77b1c3d901be300abe8d58645b7a59e794e5982"
-  integrity sha512-wOKsGtvTMYs7WAscmwwdM8sfRRvE17Ym30zFj3n37Qx5tHRfhenPKEPILHaHob6WoLFADmQm1ZNrE5xMCM6sCw==
 
 react-lifecycles-compat@^3.0.4:
   version "3.0.4"
@@ -5814,16 +5800,6 @@ react-router@^4.3.1:
     path-to-regexp "^1.7.0"
     prop-types "^15.6.1"
     warning "^4.0.1"
-
-react-test-renderer@^16.6.0:
-  version "16.6.1"
-  resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-16.6.1.tgz#8ea357652be3cf81cbd6b2f686e74ebe67c17b78"
-  integrity sha512-sgZwJZYIgQptRi2qk5+gB8FBQGk4gLSs0gmKZPMfhd3dLkdxIUwVLHteLN3Bnj4LokIZd3U+V2NEJUqeV2PT2w==
-  dependencies:
-    object-assign "^4.1.1"
-    prop-types "^15.6.2"
-    react-is "^16.6.1"
-    scheduler "^0.11.0"
 
 react@^16.5.2:
   version "16.6.1"
