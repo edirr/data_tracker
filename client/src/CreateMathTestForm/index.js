@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 
-class CreateTestForm extends Component {
+class CreateMathTestForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      test_name: '',
+      math_test_name: '',
       date:'',
       grade: '',
     };
@@ -26,20 +26,21 @@ updateState(event){
 handleSubmit(event) {
 console.log(event)
     event.preventDefault();
-    const { newTestSubmitAction } = this.props;
+    const { newMathTestSubmitAction } = this.props;
 
     // const { thing2, thing3, ...good } = this.state
-    newTestSubmitAction(this.state);
+    newMathTestSubmitAction(this.state);
   }
 
   render() {
     return (
+
       <form onSubmit={this.handleSubmit}>
-      <p>Add ELA Score</p>
+      <p>Add Math Score</p>
       <div className="field">
   <label className="label">Test Name</label>
   <div className="control">
-    <input onChange={this.updateState} name="test_name" className="input" type="text" value={this.state.test_name} placeholder="Unit 1 Spelling Test" />
+    <input onChange={this.updateState} name="math_test_name" className="input" type="text" value={this.state.math_test_name} placeholder="Unit 1 Math Test" />
   </div>
 </div>
 
@@ -64,4 +65,4 @@ console.log(event)
   }
 }
 
-export default CreateTestForm;
+export default CreateMathTestForm;

@@ -6,6 +6,7 @@ import StudentPage from "../StudentPage";
 import NavBar from "../NavBar";
 import CreateStudentForm from "../CreateStudentForm";
 import CreateTestForm from "../CreateTestForm";
+import CreateMathTestForm from "../CreateMathTestForm";
 
 import 'bulma';
 
@@ -20,6 +21,7 @@ class App extends Component {
       student_math_test_data: [],
       student_id:[],
       single_student_data: '',
+      form_subject: '',
 
 
     };
@@ -30,7 +32,8 @@ class App extends Component {
     this.getSingleStudent = this.getSingleStudent.bind(this);
     this.newStudentSubmitAction = this.newStudentSubmitAction.bind(this);
     this.newTestSubmitAction = this.newTestSubmitAction.bind(this);
-
+    this.newMathTestSubmitAction = this.newMathTestSubmitAction.bind(this);
+    this.updateSubject = this.updateSubject.bind(this);
   }
 
   async newStudentSubmitAction(newStudent) {
@@ -59,6 +62,20 @@ class App extends Component {
             .then((data) =>  console.log(data))
             .catch((err)=>console.log(err))
             this.getSingleStudentScores();
+  }
+  async newMathTestSubmitAction(newTest) {
+    console.log(newTest)
+    await fetch(`/api/students/${this.state.student_id}/mathtests`, {
+                method: 'POST',
+                headers: {
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json'
+  },
+                body:JSON.stringify(newTest)
+            }).then((res) => res.json())
+            .then((data) =>  console.log(data))
+            .catch((err)=>console.log(err))
+            this.getSingleStudentMathScores();
   }
 
  async getStudents(){
@@ -132,6 +149,17 @@ async getSingleStudent(){
       this.getSingleStudentMathScores();
   }
 
+  updateSubject(event){
+    // console.log(event)
+    // destructure the event
+    // const { name, value } = event.target;
+
+    // set the state as needed
+    this.setState({
+      form_subject: event.target.name
+    });
+  }
+
 
 
 
@@ -149,6 +177,15 @@ async getSingleStudent(){
     const studentMathScores = this.state.student_math_test_data
     const studentScores = this.state.student_test_data
 
+    // if(this.state.form_subject === 'ela'){
+    //        <CreateTestForm newTestSubmitAction={this.newTestSubmitAction} />
+    //       }else if (this.state.form_subject === math){
+    //       <CreateMathTestForm newMathTestSubmitAction={this.newMathTestSubmitAction} />
+
+    //     }
+
+// {this.state.form_subject === "ela" ? <CreateTestForm newTestSubmitAction={this.newTestSubmitAction} /> :
+         // <CreateMathTestForm newMathTestSubmitAction={this.newMathTestSubmitAction} />}
     return (
 
       <div className="app">
@@ -161,8 +198,25 @@ async getSingleStudent(){
           <StudentPage student={student} studentScores={studentScores} studentMathScores={studentMathScores}/>
           </div>
           <div className="column is-one-fifth new-student-form">
+          <div className="student-form">
           <CreateStudentForm newStudentSubmitAction={this.newStudentSubmitAction}/>
-          <CreateTestForm newTestSubmitAction={this.newTestSubmitAction} />
+          </div>
+
+          <div className="test-form buttons">
+          <div className="subject">
+      <button className="button" onClick={this.updateSubject} name="ela" value="ela">
+        ELA
+      </button>
+      <button className="button" onClick={this.updateSubject} name="math" name="math">
+        Math
+      </button>
+
+    </div>
+        {this.state.form_subject === "math" ? <CreateMathTestForm newMathTestSubmitAction={this.newMathTestSubmitAction} /> :
+            <CreateTestForm newTestSubmitAction={this.newTestSubmitAction} /> }
+            </div>
+
+
           </div>
       </div>
       </div>
@@ -172,3 +226,30 @@ async getSingleStudent(){
 }
 
 export default App;
+
+
+
+
+
+
+
+// <div class="dropdown is-active">
+//   <div class="dropdown-trigger">
+//     <button class="button" aria-haspopup="true" aria-controls="dropdown-menu" >
+//       <span>Add Score</span>
+//       <span class="icon is-small">
+//         <i class="fas fa-angle-down" aria-hidden="true"></i>
+//       </span>
+//     </button>
+//   </div>
+//   <div class="dropdown-menu" id="dropdown-menu" role="menu">
+//     <div class="dropdown-content">
+//       <a onClick={this.updateSubject} name="ela" value="ela" class="dropdown-item">
+//         ELA
+//       </a>
+//       <a onClick={this.updateSubject} name="math" name="math" class="dropdown-item">
+//         Math
+//       </a>
+//     </div>
+//   </div>
+// </div>

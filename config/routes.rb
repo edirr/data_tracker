@@ -5,6 +5,11 @@ scope :api do
     resources :tests, except: %i(destroy update show), controller: 'student_tests'
     resources :mathtests, except: %i(destroy update show), controller: 'student_math_tests'
   end
+
+    resources :users do
+    resources :students, except: %i(destroy update show), controller: 'user_students'
+  end
+    resources :students, only: %i(destroy update show)
     resources :tests, only: %i(destroy update show)
     resources :mathtests, only: %i(destroy update show)
 end

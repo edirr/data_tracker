@@ -148,12 +148,17 @@ class StudentChart extends Component {
               xAxes: [{
                 distribution: 'series',
                 ticks:{
-                  autoSkip: false
+                  autoSkip: false,
+                  display: false,
                 },
                 // type: "time",
               }],
               yAxes: [
                 {
+                  scaleLabel: {
+        display: true,
+        labelString: 'Grade'
+      },
                   display: true,
                   // stacked: true,
                   ticks: {

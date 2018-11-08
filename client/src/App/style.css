@@ -1,6 +1,7 @@
 body{
   /*background: #F7B733;*/
 }
+
 .navbar{
   /*background-color: #F7B733 !important;*/
   background:#DFDCE3 !important;
@@ -18,6 +19,10 @@ body{
   font-size: 2rem;
   text-align: center;
   font-weight: bold;
+  color:#1a3e77;
+}
+hr{
+  background-color: #1a3e77 !important;
 }
 
 .student{
@@ -26,7 +31,12 @@ body{
 }
 
 .student:hover {
-  background-color: #F7B733 !important;
+  background-color: #1a3e77 !important;
+  color: white !important;
+}
+.button{
+  background-color: #1a3e77 !important;
+  color:white !important;
 }
 .student-page{
   display: flex;
@@ -38,16 +48,23 @@ body{
 }
 .student-info{
   background-color:#DFDCE3;
-  font-size: 2rem;
+  font-size: 1.5rem;
   border: .2rem black solid;
   margin: 1em;
   width:50%;
   text-align: center;
 
 }
+.student-form{
+padding: .5rem;
+}
+
+.test-form{
+  padding: .5rem;
+}
 
 
-.page-content{
+.app{
   height:100vh;
 }
 
@@ -58,5 +75,5 @@ body{
 }
 .new-student-form{
   background-color: #4ABDAC;
-  padding: 2em !important;
+  padding: 1em !important;
 }

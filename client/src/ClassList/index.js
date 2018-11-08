@@ -23,6 +23,7 @@ class ClassList extends Component {
     return (
       <aside className="menu class-list">
         <h1 className="class-list-heading">Class List</h1>
+        <hr/>
         <ul className="menu-list">{students}</ul>
       </aside>
 

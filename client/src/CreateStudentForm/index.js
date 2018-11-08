@@ -36,6 +36,7 @@ console.log(event)
 
     return (
       <form onSubmit={this.handleSubmit}>
+      <p>Add Student</p>
       <div className="field">
   <label className="label">Name</label>
   <div className="control">
