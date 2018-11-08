@@ -26,7 +26,7 @@ class StudentChart extends Component {
   shouldComponentUpdate(nextProps) {
     const differentProps = this.props.studentScores !== nextProps.studentScores;
     const differentMathProps = this.props.studentMathScores !== nextProps.studentMathScores;
-    return differentProps
+    return differentMathProps || differentProps
   }
 
   // componentWillReceiveProps(nextProps){
@@ -45,25 +45,27 @@ class StudentChart extends Component {
     //       : this.props.studentScores
 
     let chartData = {
-      labels: ["Unit 1", "Unit 1","Unit 1","Unit 1","Unit 1","Unit 1","Unit 1"],
+      labels: [],
       datasets: [
         {
-          label: "ELA Score",
+          label: "ELA",
+          labels: [],
           data: [],
           showLine: true,
-          backgroundColor: "#FC4A1A",
+          backgroundColor: "darkBlue",
           fill: false,
-          borderColor: "#FC4A1A",
-          lineTension: 0
+          borderColor: "darkBlue",
+          lineTension: .2
         },
         {
-          label: "Math Score",
+          label: "Math",
+          labels: [],
           data: [],
           showLine: true,
-          backgroundColor: "green",
+          backgroundColor: "red",
           fill: false,
-          borderColor: "green",
-          lineTension: 0
+          borderColor: "red",
+          lineTension: .2
         }
 
       ],
@@ -75,12 +77,19 @@ class StudentChart extends Component {
         : this.props.studentScores.map(test => {
             return chartData.datasets[0].data.push(test.grade);
           });
-    // let testNames =
-    //   this.props.studentScores.length < 1
-    //     ? "No data"
-    //     : this.props.studentScores.map(test => {
-    //         return chartData.labels.push(test.test_name);
-    //       });
+    let testNames =
+      this.props.studentScores.length < 1
+        ? "No data"
+        : this.props.studentScores.map(test => {
+            return chartData.datasets[0].labels.push(test.test_name);
+          });
+
+        let ticks =
+      this.props.studentScores.length < 1
+        ? "No data"
+        : this.props.studentScores.map(test => {
+            return chartData.labels.push('');
+          });
 
 
       //Math Test Scores and Names
@@ -90,12 +99,12 @@ class StudentChart extends Component {
         : this.props.studentMathScores.map(test => {
             return chartData.datasets[1].data.push(test.grade);
           });
-    // let mathTestNames =
-    //   this.props.studentScores.length < 1
-    //     ? "No data"
-    //     : this.props.studentScores.map(test => {
-    //         return chartData.labels.push(test.test_name);
-    //       });
+    let mathTestNames =
+      this.props.studentScores.length < 1
+        ? "No data"
+        : this.props.studentScores.map(test => {
+            return chartData.datasets[1].labels.push(test.test_name);
+          });
 
 
     // let studentName = this.props.student.length == undefined
@@ -126,16 +135,27 @@ class StudentChart extends Component {
               display: true,
               position: "right"
             },
+            tooltips: {
+        callbacks: {
+          label: function(tooltipItem, data) {
+            var dataset = data.datasets[tooltipItem.datasetIndex];
+            var index = tooltipItem.index;
+            return dataset.labels[index] + ': ' + dataset.data[index];
+          }
+        }
+      },
             scales: {
               xAxes: [{
+                distribution: 'series',
                 ticks:{
                   autoSkip: false
-                }
+                },
+                // type: "time",
               }],
               yAxes: [
                 {
                   display: true,
-                  stacked: true,
+                  // stacked: true,
                   ticks: {
                     min: 60,
                     max: 100
