@@ -44,14 +44,11 @@ class App extends Component {
             }).then((res) => res.json())
             .then((data) =>  console.log(data))
             .catch((err)=>console.log(err))
-    // fetch / post (newStudent)
-    // const studentID = await fetch('/students','post', newStudent);
-    // this.getStudents();
+
     console.log(newStudent)
   }
 
   async newTestSubmitAction(newTest) {
-    // console.log(newTest)
     await fetch(`/api/students/${this.state.student_id}/tests`, {
                 method: 'POST',
                 headers: {
@@ -65,7 +62,6 @@ class App extends Component {
             this.getSingleStudentScores();
   }
   async newMathTestSubmitAction(newTest) {
-    console.log(newTest)
     await fetch(`/api/students/${this.state.student_id}/mathtests`, {
                 method: 'POST',
                 headers: {
@@ -89,36 +85,26 @@ class App extends Component {
        }) });
 }
  async getSingleStudentScores(){
-   // const id = this.state.student_id
    let studentTests = `/api/students/${this.state.student_id}/tests`
-   // console.log(studentTests)
     await fetch(studentTests)
       .then((response) => {return response.json()})
       .then((data) => {this.setState({ student_test_data: data }) });
 }
 
 async getSingleStudentMathScores(){
-   // const id = this.state.student_id
    let studentMathTests = `/api/students/${this.state.student_id}/mathtests`
-   // console.log(studentTests)
     await fetch(studentMathTests)
       .then((response) => {return response.json()})
       .then((data) => {this.setState({ student_math_test_data: data }) });
 }
 
 async getSingleStudent(){
-  // const id = this.state.student_id
   let studentId = `/api/students/${this.state.student_id}`
-  // console.log(`/students/${this.state.student_id}`)
     await fetch(studentId)
       .then((response) => {return response.json()})
       .then((data) => {this.setState({ single_student_data: data }) });
 }
-// async getSingleStudent(){
-//     fetch({`/students/${this.state.student_id}`})
-//       .then((response) => {return response.json()})
-//       .then((data) => {this.setState({ single_student_data: data }) });
-// }
+
 
   componentDidMount(){
     this.getStudents();
@@ -126,22 +112,14 @@ async getSingleStudent(){
 
   }
 
-  // componentDidUpdate(){
-  //   this.getSingleStudent();
-  // }
+
 
   clearStudentId(){
     this.setState({
       student_id: []
     })
   }
-  // sendStudentId(e){
-  //   // clearStudentId();
-  //   // this.setState({
-  //     // student_id: e.target.id
-  //     this.setState({student_id: e.target.id}, this.getSingleStudent, this.getSingleStudentScores)
-  //   // this.getSingleStudent();
-  // }
+
 
    async sendStudentId(e){
       await this.setState({student_id: e.target.id})
@@ -151,11 +129,6 @@ async getSingleStudent(){
   }
 
   updateSubject(event){
-    // console.log(event)
-    // destructure the event
-    // const { name, value } = event.target;
-
-    // set the state as needed
     this.setState({
       form_subject: event.target.name
     });
@@ -178,15 +151,7 @@ async getSingleStudent(){
     const studentMathScores = this.state.student_math_test_data
     const studentScores = this.state.student_test_data
 
-    // if(this.state.form_subject === 'ela'){
-    //        <CreateTestForm newTestSubmitAction={this.newTestSubmitAction} />
-    //       }else if (this.state.form_subject === math){
-    //       <CreateMathTestForm newMathTestSubmitAction={this.newMathTestSubmitAction} />
 
-    //     }
-
-// {this.state.form_subject === "ela" ? <CreateTestForm newTestSubmitAction={this.newTestSubmitAction} /> :
-         // <CreateMathTestForm newMathTestSubmitAction={this.newMathTestSubmitAction} />}
     return (
 
       <div className="app">
@@ -227,30 +192,3 @@ async getSingleStudent(){
 }
 
 export default hot(module)(App);
-
-
-
-
-
-
-
-// <div class="dropdown is-active">
-//   <div class="dropdown-trigger">
-//     <button class="button" aria-haspopup="true" aria-controls="dropdown-menu" >
-//       <span>Add Score</span>
-//       <span class="icon is-small">
-//         <i class="fas fa-angle-down" aria-hidden="true"></i>
-//       </span>
-//     </button>
-//   </div>
-//   <div class="dropdown-menu" id="dropdown-menu" role="menu">
-//     <div class="dropdown-content">
-//       <a onClick={this.updateSubject} name="ela" value="ela" class="dropdown-item">
-//         ELA
-//       </a>
-//       <a onClick={this.updateSubject} name="math" name="math" class="dropdown-item">
-//         Math
-//       </a>
-//     </div>
-//   </div>
-// </div>
