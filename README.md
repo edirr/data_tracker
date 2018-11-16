@@ -25,7 +25,8 @@ fetches to the database to retrieve the tests and info related to that students 
 
 Another major part of my project was being able to pass down the data to my chart where i can display the scores. The challenging part was making sure the data was formatted the way the chart wanted it. 
  
-
+#Snippet 
+This code shows the function that is called upon when clicking a student and how it sets the id to state and then makes three separate calls to the database using the student's ID
 ```javascript
 async getSingleStudent(){
   let studentId = `/api/students/${this.state.student_id}`
