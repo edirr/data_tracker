@@ -2,12 +2,12 @@
 
 [12] Clear and well-written README that describes approach taken, technologies used, code snippet, installation instructions, user stories, wireframes, and ERDs.
 
-#Technologies used
+# Technologies used
 Ruby on Rails 
 React 
 Chart.js 
 
-#User Stories
+# User Stories
 
 As a teacher I want to be able to keep track of my students grades 
 
@@ -16,7 +16,7 @@ students grades in an easy to read graph.
 
 As a teacher I want to have my students' profiles and grades in one place. 
 
-#Approach 
+# Approach 
 For this project I wanted to be able to display each individual student's scores 
 on the student page. This was a challenge for me initially but eventually 
 created functions in the app and passing them down as props for each student as a 
@@ -25,7 +25,7 @@ fetches to the database to retrieve the tests and info related to that students 
 
 Another major part of my project was being able to pass down the data to my chart where i can display the scores. The challenging part was making sure the data was formatted the way the chart wanted it. 
  
-#Snippet 
+# Snippet 
 This code shows the function that is called upon when clicking a student and how it sets the id to state and then makes three separate calls to the database using the student's ID
 ```javascript
 async getSingleStudent(){
