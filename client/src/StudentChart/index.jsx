@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Bar, Line } from "react-chartjs-2";
+import React, { Component } from 'react';
+import { Bar, Line } from 'react-chartjs-2';
 
 class StudentChart extends Component {
   constructor(props) {
@@ -26,7 +26,7 @@ class StudentChart extends Component {
   shouldComponentUpdate(nextProps) {
     const differentProps = this.props.studentScores !== nextProps.studentScores;
     const differentMathProps = this.props.studentMathScores !== nextProps.studentMathScores;
-    return differentMathProps || differentProps
+    return differentMathProps || differentProps;
   }
 
   // componentWillReceiveProps(nextProps){
@@ -44,67 +44,52 @@ class StudentChart extends Component {
     //       ? "No data"
     //       : this.props.studentScores
 
-    let chartData = {
-      labels: [],
+    const chartData = {
+      labels:   [],
       datasets: [
         {
-          label: "ELA",
-          labels: [],
-          data: [],
-          showLine: true,
-          backgroundColor: "darkBlue",
-          fill: false,
-          borderColor: "darkBlue",
-          lineTension: .2
+          label:           'ELA',
+          labels:          [],
+          data:            [],
+          showLine:        true,
+          backgroundColor: 'darkBlue',
+          fill:            false,
+          borderColor:     'darkBlue',
+          lineTension:     0.2,
         },
         {
-          label: "Math",
-          labels: [],
-          data: [],
-          showLine: true,
-          backgroundColor: "red",
-          fill: false,
-          borderColor: "red",
-          lineTension: .2
-        }
+          label:           'Math',
+          labels:          [],
+          data:            [],
+          showLine:        true,
+          backgroundColor: 'red',
+          fill:            false,
+          borderColor:     'red',
+          lineTension:     0.2,
+        },
 
       ],
     };
-    //ELA Scores and Names
-    let scores =
-      this.props.studentScores.length < 1
-        ? "No data"
-        : this.props.studentScores.map(test => {
-            return chartData.datasets[0].data.push(test.grade);
-          });
-    let testNames =
-      this.props.studentScores.length < 1
-        ? "No data"
-        : this.props.studentScores.map(test => {
-            return chartData.datasets[0].labels.push(test.test_name);
-          });
+    // ELA Scores and Names
+    const scores =      this.props.studentScores.length < 1
+      ? 'No data'
+      : this.props.studentScores.map(test => chartData.datasets[0].data.push(test.grade));
+    const testNames =      this.props.studentScores.length < 1
+      ? 'No data'
+      : this.props.studentScores.map(test => chartData.datasets[0].labels.push(test.test_name));
 
-        let ticks =
-      this.props.studentScores.length < 1
-        ? "No data"
-        : this.props.studentScores.map(test => {
-            return chartData.labels.push('');
-          });
+    const ticks =      this.props.studentScores.length < 1
+      ? 'No data'
+      : this.props.studentScores.map(test => chartData.labels.push(''));
 
 
-      //Math Test Scores and Names
-      let mathScores =
-      this.props.studentMathScores.length < 1
-        ? "No data"
-        : this.props.studentMathScores.map(test => {
-            return chartData.datasets[1].data.push(test.grade);
-          });
-    let mathTestNames =
-      this.props.studentScores.length < 1
-        ? "No data"
-        : this.props.studentScores.map(test => {
-            return chartData.datasets[1].labels.push(test.test_name);
-          });
+    // Math Test Scores and Names
+    const mathScores =      this.props.studentMathScores.length < 1
+      ? 'No data'
+      : this.props.studentMathScores.map(test => chartData.datasets[1].data.push(test.grade));
+    const mathTestNames =      this.props.studentScores.length < 1
+      ? 'No data'
+      : this.props.studentScores.map(test => chartData.datasets[1].labels.push(test.test_name));
 
 
     // let studentName = this.props.student.length == undefined
@@ -125,49 +110,49 @@ class StudentChart extends Component {
           data={chartData}
           options={{
             maintainAspectRatio: true,
-            title: {
-              display: true,
-              text: "Student Scores",
-              fontSize: 25
+            title:               {
+              display:  true,
+              text:     'Student Scores',
+              fontSize: 25,
             },
             showLine: true,
-            legend: {
-              display: true,
-              position: "right"
+            legend:   {
+              display:  true,
+              position: 'right',
             },
             tooltips: {
-        callbacks: {
-          label: function(tooltipItem, data) {
-            var dataset = data.datasets[tooltipItem.datasetIndex];
-            var index = tooltipItem.index;
-            return dataset.labels[index] + ': ' + dataset.data[index];
-          }
-        }
-      },
+              callbacks: {
+                label(tooltipItem, data) {
+                  const dataset = data.datasets[tooltipItem.datasetIndex];
+                  const index = tooltipItem.index;
+                  return `${dataset.labels[index]}: ${dataset.data[index]}`;
+                },
+              },
+            },
             scales: {
               xAxes: [{
                 distribution: 'series',
-                ticks:{
+                ticks:        {
                   autoSkip: false,
-                  display: false,
+                  display:  false,
                 },
                 // type: "time",
               }],
               yAxes: [
                 {
                   scaleLabel: {
-        display: true,
-        labelString: 'Grade'
-      },
+                    display:     true,
+                    labelString: 'Grade',
+                  },
                   display: true,
                   // stacked: true,
-                  ticks: {
+                  ticks:   {
                     min: 60,
-                    max: 100
-                  }
-                }
-              ]
-            }
+                    max: 100,
+                  },
+                },
+              ],
+            },
           }}
         />
       </div>

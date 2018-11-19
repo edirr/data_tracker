@@ -21,7 +21,7 @@
     "test": "jest"
   },
   "webpack_build": {
-    "entry": "./client/src/index.js",
+    "entry": "./client/src/index.jsx",
     "output": "public",
     "title": "Tracker",
     "react_mount_root": "root"
