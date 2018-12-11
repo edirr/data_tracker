@@ -34,7 +34,7 @@ class StudentPage extends Component {
   //     return differentProps;
   //     }
 
-
+//
   render() {
     const student =      this.props.student.length < 1
       ? ''
