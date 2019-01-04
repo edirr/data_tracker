@@ -1,7 +1,5 @@
 # Data Tracker 
 
-[12] Clear and well-written README that describes approach taken, technologies used, code snippet, installation instructions, user stories, wireframes, and ERDs.
-
 # Technologies used
 Ruby on Rails 
 React 
